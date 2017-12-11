@@ -5,4 +5,4 @@ root="${PWD}"
 
 #create some dirs
 mkdir -p $root/mysql
-mkdir -p $root/public
+mkdir -p $root/docroot
