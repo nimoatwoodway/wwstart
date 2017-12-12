@@ -28,4 +28,5 @@ else
     printf ".gitignore write error\n"
   fi
 fi
-=======
+
+exit 0
