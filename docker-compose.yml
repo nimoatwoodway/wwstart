@@ -8,11 +8,9 @@ services:
       MYSQL_DATABASE: drupal
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
-      MYSQL_INTERACTIVE_TIMEOUT: 3600
-      MYSQL_WAIT_TIMEOUT: 3600
     volumes:
 #      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
-      - ./mysql:/var/lib/mysql:cached # I want to manage volumes manually.
+      - ./mysql:/var/lib/mysql # I want to manage volumes manually.
 
   php:
 # 1. Images with vanilla Drupal – wodby/drupal:[DRUPAL_VERSION]-[PHP_VERSION]-[STABILITY_TAG].
@@ -36,10 +34,10 @@ services:
       DB_PASSWORD: drupal
       DB_NAME: drupal
       DB_DRIVER: mysql
-      PHP_XDEBUG: 1
-      PHP_XDEBUG_DEFAULT_ENABLE: 1
-      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
-      PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"
+      #      PHP_XDEBUG: 0
+      #      PHP_XDEBUG_DEFAULT_ENABLE: 1
+      #      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
+      #      PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"
 #      PHP_XDEBUG_PROFILER_OUTPUT_DIR: /mnt/files/xdebug/profiler
 #      PHP_XDEBUG_TRACE_OUTPUT_DIR: /mnt/files/xdebug/traces
     volumes:
@@ -87,9 +85,9 @@ services:
 #      - codebase:/var/www/html
 # Options for macOS users (https://docker4drupal.readthedocs.io/en/latest/macos)
       - ./:/var/www/html:cached # User-guided caching
-#      - docker-sync:/var/www/html # Docker-sync
-    labels:
-      - 'traefik.backend=apache'
+#      - #docker-sync:/var/www/html # Docker-sync
+    label#s:
+      - '#traefik.backend=apache'
       - 'traefik.port=80'
       - 'traefik.frontend.rule=Host:drupal.docker.localhost'
 
