@@ -11,7 +11,7 @@ services:
       #MYSQL_INTERACTIVE_TIMEOUT: 3600
       #MYSQL_WAIT_TIMEOUT: 3600
     volumes:
-#      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+      #- ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
       - ../mysql:/var/lib/mysql:cached # I want to manage volumes manually.
 
   php:
@@ -36,10 +36,10 @@ services:
       DB_PASSWORD: drupal
       DB_NAME: drupal
       DB_DRIVER: mysql
-      #      PHP_XDEBUG: 1
-      #      PHP_XDEBUG_DEFAULT_ENABLE: 1
-      #      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
-      #      PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"
+      PHP_XDEBUG: 1
+      PHP_XDEBUG_DEFAULT_ENABLE: 1
+      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
+      PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"
 #      PHP_XDEBUG_PROFILER_OUTPUT_DIR: /mnt/files/xdebug/profiler
 #      PHP_XDEBUG_TRACE_OUTPUT_DIR: /mnt/files/xdebug/traces
     volumes:
@@ -226,7 +226,7 @@ services:
     image: traefik
     command: -c /dev/null --web --docker --logLevel=INFO
     ports:
-      - '8000:80'
+      - '80:80'
 #      - '8080:8080' # Dashboard
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
