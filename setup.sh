@@ -21,7 +21,7 @@ if grep -q "wwstart" "$root/.gitignore";
 then
   printf ".gitignore already customized\n"
 else
-  cmd="printf '\n#wwstart ignore stuff\n#from setup.sh\n#ignore docker\ndocker\n#macOS\n.DS_Store\n#PhpStorm configs\n.idea\n#DB Files\nmysql' >> $root/.gitignore"
+  cmd="printf '\n#wwstart ignore stuff\n#from setup.sh\n#ignore docker\ndocker\n#macOS\n.DS_Store\n#PhpStorm configs\n.idea\n#DB Files\nmysql\n#ignore drupal private files\nprivate' >> $root/.gitignore"
   if eval $cmd; then
     printf ".gitignore customized\n"
   else
