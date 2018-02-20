@@ -28,6 +28,7 @@ services:
       #PHP_XDEBUG_PROFILER_OUTPUT_DIR: /mnt/files/xdebug/profiler
       #PHP_XDEBUG_TRACE_OUTPUT_DIR: /mnt/files/xdebug/traces
       #PHP_OPCACHE_ENABLE: 0
+      PHP_MAX_EXECUTION_TIME: 600
     volumes:
       - ./:/var/www/html:cached # User-guided caching
 
@@ -39,6 +40,7 @@ services:
       APACHE_LOG_LEVEL: debug
       APACHE_BACKEND_HOST: php
       APACHE_SERVER_ROOT: /var/www/html/docroot
+      APACHE_FCGI_PROXY_TIMEOUT: 600
     volumes:
       - ./:/var/www/html:cached # User-guided caching
     labels:
