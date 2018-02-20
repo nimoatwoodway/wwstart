@@ -39,7 +39,7 @@ services:
     environment:
       APACHE_LOG_LEVEL: debug
       APACHE_BACKEND_HOST: php
-      APACHE_SERVER_ROOT: /var/www/html/docroot
+      APACHE_SERVER_ROOT: /var/www/html/web
       APACHE_FCGI_PROXY_TIMEOUT: 600
     volumes:
       - ./:/var/www/html:cached # User-guided caching

@@ -5,7 +5,7 @@ root="${PWD}"
 
 #create some dirs
 mkdir -p $root/mysql
-mkdir -p $root/docroot
+mkdir -p $root/web
 
 #create .gitignore if missing
 if [ -e $root/.gitignore ]
