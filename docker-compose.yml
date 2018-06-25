@@ -29,6 +29,7 @@ services:
       #PHP_XDEBUG_TRACE_OUTPUT_DIR: /mnt/files/xdebug/traces
       #PHP_OPCACHE_ENABLE: 0
       PHP_MAX_EXECUTION_TIME: 600
+      PHP_OPCACHE_ENABLE: 0
     volumes:
       - ./:/var/www/html:cached # User-guided caching
 
